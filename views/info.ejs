@@ -1,0 +1,17 @@
+<%- include('../public/header')%>
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h1>Información del sistema</h1>
+            <ul>
+                <li>Argumentos de entrada: <%= process.argv %></li>
+                <li>Path de ejecución: <%= process.execPath %></li>
+                <li>Nombre de la plataforma (sistema operativo): <%= process.platform %></li>
+                <li>Versión de node.js: <%= process.version %></li>
+                <li>Process id: <%= process.pid %></li>
+                <li>Carpeta del proyecto: <%= process.cwd() %></li>
+                <li>Memoria total reservada (rss): <%= process.memoryUsage().rss %></li>
+                <li>Cantidad de procesadores: <%= numCPUs %></li>
+            </ul>
+        </div>
+    </div>
