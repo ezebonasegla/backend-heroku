@@ -3,7 +3,7 @@ import { MONGO_URI, FIREBASE_TYPE, FIREBASE_TOKEN_URI, FIREBASE_PROJECT_ID, FIRE
 //Base de datos (mongoDB-mongoose)
 
 import { connect } from "mongoose";
-export const url = process.env.MONGO_URI;
+export const url = MONGO_URI;
 export async function connectMG() {
   try {
     return await connect(url, {
@@ -22,16 +22,16 @@ if (!dbMongo) throw "can not connect to the db";
 import admin from "firebase-admin";
 
 export const firebaseConfig = {
-  type: process.env.FIREBASE_TYPE ? process.env.FIREBASE_TYPE.replace(/\n/gm, "/n") : undefined,
-  project_id: process.env.FIREBASE_PROJECT_ID ? process.env.FIREBASE_PROJECT_ID.replace(/\n/gm, "/n") : undefined,
-  private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID ? process.env.FIREBASE_PRIVATE_KEY_ID.replace(/\n/gm, "/n") : undefined,
-  private_key: process.env.FIREBASE_PRIVATE_KEY ? process.env.FIREBASE_PRIVATE_KEY.replace(/\n/gm, "/n") : undefined,
-  client_email: process.env.FIREBASE_CLIENT_EMAIL ? process.env.FIREBASE_CLIENT_EMAIL.replace(/\n/gm, "/n") : undefined,
-  client_id: process.env.FIREBASE_CLIENT_ID ? process.env.FIREBASE_CLIENT_ID.replace(/\n/gm, "/n") : undefined,
-  auth_uri: process.env.FIREBASE_AUTH_URI ? process.env.FIREBASE_AUTH_URI.replace(/\n/gm, "/n") : undefined,
-  token_uri: process.env.FIREBASE_TOKEN_URI ? process.env.FIREBASE_TOKEN_URI.replace(/\n/gm, "/n") : undefined,
-  auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL ? process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL.replace(/\n/gm, "/n") : undefined,
-  client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL ? process.env.FIREBASE_CLIENT_X509_CERT_URL.replace(/\n/gm, "/n") : undefined,
+  type: FIREBASE_TYPE,
+  project_id: FIREBASE_PROJECT_ID,
+  private_key_id: FIREBASE_PRIVATE_KEY_ID,
+  private_key: FIREBASE_PRIVATE_KEY,
+  client_email: FIREBASE_CLIENT_EMAIL,
+  client_id: FIREBASE_CLIENT_ID,
+  auth_uri: FIREBASE_AUTH_URI,
+  token_uri: FIREBASE_TOKEN_URI,
+  auth_provider_x509_cert_url: FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
+  client_x509_cert_url: FIREBASE_CLIENT_X509_CERT_URL,
 };
 
 admin.initializeApp({
