@@ -4,7 +4,7 @@ import process from "process";
 //Base de datos (mongoDB-mongoose)
 
 import { connect } from "mongoose";
-export const url = proccess.env.MONGO_URI;
+export const url = process.env.MONGO_URI;
 export async function connectMG() {
   try {
     return await connect(url, {
