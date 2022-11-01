@@ -31,10 +31,10 @@
     "passport-twitter": "^1.0.4",
     "redis": "^4.3.1",
     "socket.io": "^4.5.2",
+    "@faker-js/faker": "^7.6.0",
     "yargs": "^17.6.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.6.0",
     "nodemon": "^2.0.19"
   }
 }
