@@ -59,7 +59,7 @@ boton.addEventListener("click", (e) => {
 
 const tabla = document.getElementById("tablaProductos");
 
-fetch(`https://coderhouse-bonadev-backend.herokuapp.com/api/productos-test`)
+fetch("/api/productos-test")
   .then((res) => {
     return res.json();
   })
