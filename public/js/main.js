@@ -59,7 +59,7 @@ boton.addEventListener("click", (e) => {
 
 const tabla = document.getElementById("tablaProductos");
 
-fetch("http://localhost:8080/api/productos-test")
+fetch(`${window.location.host}http://localhost:8080/api/productos-test`)
   .then((res) => {
     return res.json();
   })
