@@ -15,6 +15,7 @@ import { authWebRouter as authWebRoutes } from "./routes/auth.routes.js";
 import { infoWebRouter as infoWebRoutes } from "./routes/info.js";
 
 import { socketModule } from "./utils/socket.js";
+import cors from "cors";
 
 
 import { User } from "./models/users.js";
@@ -40,6 +41,9 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
+app.use(cors({
+  origin: '*'
+}));
 
 //Motor EJS--------------------------------------------------------Motor EJS
 app.set("views", "./views");
@@ -52,7 +56,8 @@ passport.use(
   new TwitterStrategy(
     {
       consumerKey: TWITTER_CONSUMER_KEY,
-      consumerSecret: TWITTER_CONSUMER_SECRET
+      consumerSecret: TWITTER_CONSUMER_SECRET,
+      callbackURL: "/auth/twitter/callback",
     },
     function (token, tokenSecret, profile, done) {
       User.findOrCreate(
