@@ -38,7 +38,7 @@ authWebRouter.get("/auth/twitter", passport.authenticate("twitter"));
 authWebRouter.get(
     "/auth/twitter/callback", (req, res, next) => {
     passport.authenticate("twitter", {
-        callbackURL: req.protocol + "://" + req.get("host") + "/auth/twitter/callback",
+        callbackURL: "https://coderhouse-bonadev-backend.herokuapp.com/auth/twitter/callback",
         successRedirect: "/home",
         failureRedirect: "/failLogin",
     })
