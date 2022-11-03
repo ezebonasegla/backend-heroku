@@ -53,7 +53,6 @@ passport.use(
     {
       consumerKey: TWITTER_CONSUMER_KEY,
       consumerSecret: TWITTER_CONSUMER_SECRET,
-      callbackURL: "/auth/twitter/callback",
     },
     function (token, tokenSecret, profile, done) {
       User.findOrCreate(
