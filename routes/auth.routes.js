@@ -1,7 +1,5 @@
 import { Router } from "express";
 
-import path from "path";
-
 import passport from "passport";
 
 import { checkNotAuth } from "../middlewares/auth.js";
@@ -18,7 +16,7 @@ authWebRouter.get("/login", checkNotAuth, (req, res) => {
 })
 
 authWebRouter.get("/register", checkNotAuth, (req, res) => {
-    res.render(path.join(process.cwd(), '/views/register.ejs'))
+    res.render('/views/register.ejs')
 })
 
 authWebRouter.get('/logout', (req, res) => {
@@ -28,23 +26,23 @@ authWebRouter.get('/logout', (req, res) => {
 })
 
 authWebRouter.get('/failLogin', (req, res) => {
-    res.render(path.join(process.cwd(), '/views/failLogin.ejs'))
+    res.render('/views/failLogin.ejs')
 })
 
 authWebRouter.get('/failRegister', (req, res) => {
-    res.render(path.join(process.cwd(), '/views/failRegister.ejs'))
+    res.render('/views/failRegister.ejs')
 })
 
 authWebRouter.get("/auth/twitter", passport.authenticate("twitter"));
 
 authWebRouter.get(
-    "/auth/twitter/callback",
+    "/auth/twitter/callback", (req, res, next) => {
     passport.authenticate("twitter", {
-        callbackURL: "/auth/twitter/callback",
+        callbackURL: req.protocol + "://" + req.get("host") + "/auth/twitter/callback",
         successRedirect: "/home",
         failureRedirect: "/failLogin",
     })
-);
+})
 
 authWebRouter.post(
     "/login",
