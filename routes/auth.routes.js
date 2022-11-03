@@ -16,7 +16,7 @@ authWebRouter.get("/login", checkNotAuth, (req, res) => {
 })
 
 authWebRouter.get("/register", checkNotAuth, (req, res) => {
-    res.render('/views/register.ejs')
+    res.render('register')
 })
 
 authWebRouter.get('/logout', (req, res) => {
@@ -26,11 +26,11 @@ authWebRouter.get('/logout', (req, res) => {
 })
 
 authWebRouter.get('/failLogin', (req, res) => {
-    res.render('/views/failLogin.ejs')
+    res.render('failLogin')
 })
 
 authWebRouter.get('/failRegister', (req, res) => {
-    res.render('/views/failRegister.ejs')
+    res.render('failRegister')
 })
 
 authWebRouter.get("/auth/twitter", passport.authenticate("twitter"));
