@@ -16,7 +16,7 @@ const depurarChat = (msj) => {
 
 //Normalizo los chat
 export const normalizeMensajes = (msj) => {
-  //depuro y foramteo el char el chat
+  //depuro y formateo el chat el chat
   const chatDepurado = depurarChat(msj);
   //Creo las entidades
   const user = new schema.Entity("users");
