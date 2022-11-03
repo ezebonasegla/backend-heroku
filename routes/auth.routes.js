@@ -40,6 +40,7 @@ authWebRouter.get(
     passport.authenticate("twitter", {
         successRedirect: "/home",
         failureRedirect: "/failLogin",
+        callbackURL: "/auth/twitter/callback"
     })
 )
 

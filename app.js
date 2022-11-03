@@ -52,9 +52,7 @@ passport.use(
   new TwitterStrategy(
     {
       consumerKey: TWITTER_CONSUMER_KEY,
-      consumerSecret: TWITTER_CONSUMER_SECRET,
-      callbackURL: "/auth/twitter/callback",
-      proxy: true,
+      consumerSecret: TWITTER_CONSUMER_SECRET
     },
     function (token, tokenSecret, profile, done) {
       User.findOrCreate(
