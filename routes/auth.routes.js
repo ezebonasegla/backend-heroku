@@ -36,7 +36,7 @@ authWebRouter.get('/failRegister', (req, res) => {
 authWebRouter.get("/auth/twitter", passport.authenticate("twitter"));
 
 authWebRouter.get(
-    "https://coderhouse-bonadev-backend.herokuapp.com/auth/twitter/callback/auth/twitter/callback",
+    "/auth/twitter/callback",
     passport.authenticate("twitter", {
         successRedirect: "/home",
         failureRedirect: "/failLogin",
