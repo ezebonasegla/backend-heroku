@@ -35,7 +35,7 @@ authWebRouter.get('/failRegister', (req, res) => {
 
 authWebRouter.get("/auth/twitter", passport.authenticate("twitter"));
 
-authWebRouter.get(
+authWebRouter.use(
     "/auth/twitter/callback",
     passport.authenticate("twitter", {
         successRedirect: "/home",
