@@ -1,9 +1,7 @@
 const socket = io();
 import { desnormalizar } from "./funciones.js";
 
-//-------------------------------------------------------------------------------
-//--------------------------------------Chat-------------------------------------
-//-------------------------------------------------------------------------------
+//Chat
 
 //Socket Chat
 socket.on("messages", (chats) => {
@@ -49,17 +47,39 @@ boton.addEventListener("click", (e) => {
     text,
     date,
   };
-  // message.value = "";
   socket.emit("newMessage", JSON.stringify(msjToSend));
 });
 
-//-------------------------------------------------------------------------------
-//--------------------------------Tabla Productos--------------------------------
-//-------------------------------------------------------------------------------
+//Productos
 
 const tabla = document.getElementById("tablaProductos");
 
-fetch("/api/productos-test")
+fetch("/api/productos")
+  .then((res) => res.json())
+  .then((productos) => {
+    const add = productos
+      .map((producto) => {
+        return `
+    <tr>
+    <td>${producto.title}</td>
+    <td>${producto.description}</td>
+    <td>${producto.code}</td>
+    <td>${producto.price}</td>
+    <td><img src=${producto.thumbnail} alt=${producto.title}></td>
+    <td>${producto.stock}</td>
+    </tr>
+    `;
+      })
+      .join(" ");
+    tabla.innerHTML = add;
+  });
+
+
+
+
+
+
+/* fetch("/api/productos-test")
   .then((res) => {
     return res.json();
   })
@@ -76,4 +96,4 @@ fetch("/api/productos-test")
       .join(" ");
 
     tabla.innerHTML = add;
-  });
+  }); */

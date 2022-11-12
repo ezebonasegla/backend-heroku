@@ -3,6 +3,10 @@ import { Schema } from 'mongoose';
 import findOrCreate from 'mongoose-findorcreate';
 
 const userSchema = new Schema({
+    name: String,
+    address: String,
+    phone: Number,
+    image: String,
     username: {
         type: String,
         required: false,
