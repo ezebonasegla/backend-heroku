@@ -11,6 +11,7 @@ import { router as productsRoutes } from "./routes/products.routes.js";
 import { homeRouter as homeRoutes } from "./routes/home.routes.js";
 import { authWebRouter as authWebRoutes } from "./routes/auth.routes.js";
 import { infoWebRouter as infoWebRoutes } from "./routes/info.js";
+import { cartRouter as cartRoutes } from "./routes/cart.routes.js";
 
 import { socketModule } from "./utils/socket.js";
 import cors from "cors";
@@ -84,6 +85,7 @@ app.use(productsRoutes);
 app.use(homeRoutes);
 app.use(authWebRoutes);
 app.use(infoWebRoutes);
+app.use('/api/cart', cartRoutes);
 
 //Ruta 404
 app.all("*", (req, res) => {
