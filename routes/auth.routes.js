@@ -4,6 +4,8 @@ import passport from "passport";
 
 import { checkNotAuth } from "../middlewares/auth.js";
 
+import { upload } from "../middlewares/multer.js";
+
 export const authWebRouter = new Router();
 
 authWebRouter.get('/', (req, res) => {
@@ -53,6 +55,7 @@ authWebRouter.post(
 
 authWebRouter.post(
     "/register",
+    /* upload, */
     passport.authenticate("register", {
         successRedirect: "/login",
         failureRedirect: "/failRegister",

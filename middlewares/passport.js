@@ -69,6 +69,7 @@ export const passportConfig = (passport) => {
                     address: req.body.address,
                     age: req.body.age,
                     phone: req.body.phone,
+/*                     image: req.file.filename, */
                     username: username,
                     password: createHash(password),
                 });
